@@ -13,7 +13,8 @@ def index():
 	print("now =", now)
 	dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 	return {
-    		"from" : request.remote_addr, 
+    		"from_ip" : request.remote_addr,
+			"from_port" : request.environ.get('REMOTE_PORT'), 
 	    	"date" : dt_string
         }
         
